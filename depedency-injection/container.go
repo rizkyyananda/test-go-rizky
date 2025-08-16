@@ -9,6 +9,7 @@ import (
 
 type Container struct {
 	CustomerController *controller.CustomerController
+	FamilyController   *controller.FamilyController
 }
 
 func Init(cfg *config.Config) (*Container, error) {
@@ -24,10 +25,13 @@ func Init(cfg *config.Config) (*Container, error) {
 
 	//Service
 	customerService := service.NewCustomerService(customerRepository, familyRepository)
+	familyService := service.NewFamilyService(familyRepository)
 
 	//Controller
 	customerController := controller.NewCustomerController(customerService)
+	familyController := controller.NewFamilyController(familyService)
 	return &Container{
 		CustomerController: &customerController,
+		FamilyController:   &familyController,
 	}, nil
 }

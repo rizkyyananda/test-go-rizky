@@ -58,6 +58,7 @@ func main() {
 	// 6) Register app routes
 	router.RegisterRoutes(r, &router.Handlers{
 		CustomerController: *container.CustomerController,
+		FamilyController:   *container.FamilyController,
 	})
 
 	// 7) HTTP server + graceful shutdown

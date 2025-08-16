@@ -5,7 +5,7 @@ import (
 	"test_booking/controller"
 )
 
-func RegisterUserRoutes(r *mux.Router, u controller.CustomerController) {
+func RegisterCustomerRoutes(r *mux.Router, u controller.CustomerController) {
 	customerRouter := r.PathPrefix("/customer").Subrouter()
 	customerRouter.HandleFunc("", u.Save).Methods("POST")
 	customerRouter.HandleFunc("/{id}", u.Update).Methods("PUT")

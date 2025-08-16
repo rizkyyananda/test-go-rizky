@@ -7,10 +7,12 @@ import (
 
 type Handlers struct {
 	CustomerController controller.CustomerController
+	FamilyController   controller.FamilyController
 }
 
 func RegisterRoutes(r *mux.Router, h *Handlers) {
 	api := r.PathPrefix("/api").Subrouter()
 
-	RegisterUserRoutes(api, h.CustomerController)
+	RegisterCustomerRoutes(api, h.CustomerController)
+	RegisterFamilyRoutes(api, h.FamilyController)
 }
